@@ -1,0 +1,57 @@
+body {
+  padding: 40px;
+}
+
+h1 {
+  font-family: monospace;
+  margin-left: 450px;
+  color: black;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+}
+
+#border {
+  border-style: solid;
+  width: 60%;
+  position: fixed;
+}
+
+#range-color {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 30px;
+}
+
+
+#range-color+#range-color {
+  margin-top: 30px;
+}
+
+#range-color label {
+  width: 120px;
+  font-weight: 700;
+
+}
+
+#range-color input[type='range'] {
+  width: 190vh;
+}
+
+#range-color input[type='text'] {
+  width: 100px;
+  margin-left: 20px;
+}
+
+#result {
+  width: 200px;
+  height: 200px;
+  border: solid 2px #000;
+  margin: auto auto 20px auto;
+}

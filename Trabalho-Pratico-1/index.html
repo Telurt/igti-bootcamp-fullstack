@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trabalho prático 1 - ITGI Full Stack Developer</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <h1>Color Selector</h1>
+  <div id="border">
+    <div id="range-color">
+      <label for="range-r">Red:</label>
+      <input id="range-red" type="range" min="0" max="255" />
+      <input id="text-r" type="text" value="0" disabled />
+    </div>
+
+    <div id="range-color">
+      <label for="range-g">Green: </label>
+      <input id="range-green" type="range" min="0" max="255" />
+      <input type="text" id="text-g" value="0" disabled />
+    </div>
+
+    <div id="range-color">
+      <label for="range-b">Blue:</label>
+      <input id="range-blue" type="range" min="0" max="255" />
+      <input type="text" id="text-b" value="0" disabled />
+    </div>
+    <div id="result"></div>
+  </div>
+</body>
+<script src="./js/script.js"></script>
+
+</html>
