@@ -1,122 +1,114 @@
 window.addEventListener('load', start);
 
-var globalNames = ['Um', 'Dois', 'Três', 'Quatro'];
-var inputName = null;
-var isEditing = false;
-var currentIndex = 0;
+// Global Var's 
+var GlobalNames = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco'];
+var nomes = document.querySelector('#nomes');
+var ul = document.createElement('ul');
+var Input = document.getElementById('Input');
+var form = document.getElementById('Formulario');
+var IsEditing = false;
+var Posicao;
 
 function start() {
-  preventFormSubmit();
-
-  activateInput();
-
-  render();
+  PrevenirComportamentoDefault(form);
+  AplicarFoco(Input);
+  CapturarValoresDigitados(Input);
+  ExibirVetor();
 }
 
-var activateInput = () => {
-  let insertName = (name) => {
-    globalNames.push(name);
+function PrevenirComportamentoDefault(Objeto) {
+  Objeto.addEventListener('submit', function (event) {
+    event.preventDefault();
+  });
+}
 
-    render();
-  };
+function AplicarFoco(Objeto) {
+  Objeto.focus();
+}
 
-  let updateName = (name) => {
-    globalNames[currentIndex] = name;
-    render();
-  };
+function CapturarValoresDigitados(Objeto) {
+  Objeto.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+      var ValorDigitado = event.target.value; // Obtendo conteudo digitado
 
-  let handleTyping = (event) => {
-    let hasText = !!event.target.value && event.target.value.trim() !== '';
-
-    if (!hasText) {
-      clearInput();
-      return;
-    }
-
-    if (event.key === 'Enter' && event.target.value.trim() !== '') {
-      let name = event.target.value.trim();
-
-      if (isEditing) {
-        updateName(name);
-      } else {
-        insertName(name);
+      // Se algum valor tiver sido digitado, então editar ou inserir
+      if (ValorDigitado) {
+        if (IsEditing) {
+          // Editando valores
+          GlobalNames.splice(Posicao, 1, ValorDigitado);
+          IsEditing = false; // Desativando modo de edição
+        } else {
+          // Inserindo valores
+          GlobalNames.push(ValorDigitado); // Inserindo no array GlobalNames
+        }
       }
 
-      isEditing = false;
+      ExibirVetor(); // Atualizar site e Exibir vetor com novo valor
     }
-  };
+  });
+}
 
-  inputName = document.querySelector('#inputName');
+function ExibirVetor() {
+  // Limpando conteudo da ul e input para receber novos valores
+  ul.innerHTML = '';
+  Input.value = '';
 
-  inputName.addEventListener('keyup', handleTyping);
-};
+  // Para cada posição do vetor, executar a função PercorrerVetor
+  GlobalNames.forEach(PercorrerVetor);
+  nomes.appendChild(ul); // Adicionar ul na div nomes para ser exibida no site
+}
 
-var preventFormSubmit = () => {
-  let handleFormSubmit = (event) => {
-    event.preventDefault();
-  };
+function PercorrerVetor(item) {
+  var li = document.createElement('li');
 
-  let form = document.querySelector('form');
+  li.appendChild(CriarBotao()); // Cria e adiciona o botão x na li
+  li.appendChild(CriarSpan(item)); // Cria e adiciona o span na li
+  ul.appendChild(li); // Adicionando li na ul
+}
 
-  form.addEventListener('submit', handleFormSubmit);
-};
+function CriarBotao() {
+  var botao = document.createElement('button');
+  // Adicionando classe DeleteButton
+  botao.classList.add('DeleteButton');
+  botao.textContent = 'x'; // Adicionando conteúdo x
 
-var render = () => {
-  let createDeleteButton = (index) => {
-    let deleteName = () => {
-      globalNames.splice(index, 1);
-      render();
-    };
+  // Retornando botão criado ao ponto de chamada desta função
+  return botao;
+}
 
-    let button = document.createElement('button');
-    button.classList.add('deleteButton');
-    button.textContent = 'x';
-    button.addEventListener('click', deleteName);
+function CriarSpan(valor) {
+  var span = document.createElement('span');
+  span.textContent = valor; // Adicionando o valor dentro do span
+  span.classList.add('clicavel');
+  span.addEventListener('click', EditarItem);
+  // Retornando valor dentro do span
+  return span;
+}
 
-    return button;
-  };
+function EditarItem(event) {
+  // Capturando valor do elemento clicado
+  var valor = event.target.innerHTML;
 
-  let createSpan = (item, index) => {
-    let editItem = () => {
-      inputName.value = item;
-      inputName.focus();
-      isEditing = true;
-      currentIndex = index;
-    };
+  var index = GlobalNames.indexOf(valor); // Identificando índice
+  Input.value = GlobalNames[index];
+  AplicarFoco(Input); // Aplicando Foco no Input
+  IsEditing = true;
+  Posicao = index;
+}
 
-    let span = document.createElement('span');
-    span.textContent = item;
-    span.classList.add('clickable');
-    span.addEventListener('click', editItem);
+// Deletando elementos da lista que forem clicados
+ul.addEventListener('click', function (event) {
+  // Realizar evento apenas quando o usário clicar no botão
+  if (event.target.localName === 'button') {
+    // Capturando valor do elemento clicado
+    var valor = event.srcElement.nextElementSibling.innerHTML;
 
-    return span;
-  };
+    // Deletando elemento de Global Names
+    var index = GlobalNames.indexOf(valor); // Identificando índice
+    GlobalNames.splice(index, 1);
 
-  let divNames = document.querySelector('#names');
-
-  divNames.innerHTML = '';
-
-  let ul = document.createElement('ul');
-
-  let elementsLooping = (item, index) => {
-    let li = document.createElement('li');
-    let button = createDeleteButton(index);
-
-    let span = createSpan(item, index);
-
-    li.appendChild(button);
-    li.appendChild(span);
-    ul.appendChild(li);
-  };
-
-  globalNames.forEach(elementsLooping);
-
-  divNames.appendChild(ul);
-
-  clearInput();
-};
-
-var clearInput = () => {
-  inputName.value = '';
-  inputName.focus();
-};
+    var ancestral = event.target.parentElement;
+    ancestral.remove(); // Removendo elemento do site
+    ExibirVetor(); // Atualizar site e Exibir vetor com novo valor
+  }
+});
