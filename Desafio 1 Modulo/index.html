@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <title>Users Search</title>
+</head>
+
+<body class="container">
+  <div class="row m-3">
+    <div class="col-12">
+      <h1 class="d-flex justify-content-center">Users Search</h1>
+    </div>
+  </div>
+
+  <form id="Form" class="form-row d-flex justify-content-center mb-3">
+    <div class="col-10">
+      <input type="text" class="form-control mb-2 mr-sm-2" id="SearchInput" placeholder="Digite aqui ..." />
+    </div>
+    <button type="submit" id="SearchButton" class="btn btn-primary mb-2 col-2">
+      <i class="button"></i> Search</button>
+  </form>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          Resultados: <span id="ResultsFoundUser"></span>
+        </div>
+        <div class="card-body">
+          <span id="NotFoundUsers">Nada a ser exibido</span>
+          <div id="UsersFound"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          Estatísticas
+        </div>
+        <div class="card-body">
+          <span id="NotFoundStatistic">Nada a ser exibido</span>
+          <div id="StatisticFound"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
