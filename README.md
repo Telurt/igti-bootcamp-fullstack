@@ -41,3 +41,4 @@
 ###### Atividades entregues
 
 - [X] Trabalho Prático 1
+- [x] Desafio Módulo 1
