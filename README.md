@@ -42,3 +42,5 @@
 
 - [X] Trabalho Prático 1
 - [x] Desafio Módulo 1
+- [X] Trabalho Prático 2
+
