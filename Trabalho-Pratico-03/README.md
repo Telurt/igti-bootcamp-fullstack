@@ -1,16 +1,16 @@
 
 
-##Objetivos
+## Objetivos
 
 Exercitar os seguintes conceitos trabalhados no Módulo:
 - Implementação de aplicações com JavaScript e React
 - Criação de Class Components
 
-###Enunciado
+### Enunciado
 
 Construa, utilizando React, uma aplicação para a calcular o salário líquido a partir do salário bruto, considerando as regras da CLT de 2020.
 
-###Atividades
+### Atividades
 
 Os alunos deverão desempenhar as seguintes atividades:
 
