@@ -1,0 +1,36 @@
+div {
+  margin-top: 40px;
+}
+
+.flexRow {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+strong {
+  font-size: 20px;
+  color: rgb(231, 97, 97);
+  align-items: center;
+  position: absolute;
+  margin-left: 110px;
+}
+
+span {
+  padding: 16px;
+  background-color: rgba(243, 240, 240, 0.863);
+  border-radius: 16px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
