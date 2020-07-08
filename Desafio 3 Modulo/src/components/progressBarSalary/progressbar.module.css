@@ -1,0 +1,43 @@
+.motherProgress {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.salarioLiquido {
+  background-color: #16a085;
+  border-radius: 0;
+  margin: 0;
+  height: 20px;
+  width: 100%;
+}
+
+.descontoINSS {
+  background-color: #e67e22;
+  border-radius: 0;
+  margin: 0;
+  height: 20px;
+}
+
+.descontoIRPF {
+  background-color: #c0392b;
+  color: #c0392b;
+  border-radius: 0;
+  margin: 0;
+  height: 20px;
+}
+
+.liquidBorder {
+  border-left: #16a085 solid 6px;
+  background-color: #c0ebe2;
+}
+
+.inssBorder {
+  border-left: #e67e22 solid 6px;
+  background-color: #f3dac2;
+}
+
+.irpfBorder {
+  border-left: #c0392b solid 6px;
+  background-color: #f1bfb9;
+}
