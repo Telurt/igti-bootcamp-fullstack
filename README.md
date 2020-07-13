@@ -37,6 +37,8 @@
 ###### Fechamento:
 
 - Entrega do Desafio Final.
+- [ ] Desafio Final 
+
 
 ###### Atividades entregues
 
@@ -48,5 +50,7 @@
 - [X] Desafio Módulo 3
 - [x] Trabalho Prático 4
 - [x] Desafio Módulo 4
-- [ ] Desafio Final 
+
+Todos os Módulos foram completados.
+
 
