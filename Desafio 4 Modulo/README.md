@@ -10,8 +10,6 @@ como implantar aplicações no Heroku.
 
 **Enunciado:** Desenvolver um modelo de dados a ser utilizado na estrutura de uma API e publicar a aplicação pelo Heroku (Front e Back)
 
-[Backend](https://github.com/mauricio-viana/grades-api) e [Fontend](https://github.com/mauricio-viana/grades-app) da aplicação.
-
 ![](https://ik.imagekit.io/0hmjtnwyvn/bootcamp-igti/grades-app_9ydkVKUFm.gif)
 
 ## Trabalho prático
