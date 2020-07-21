@@ -39,7 +39,7 @@
 
 - Entrega do Desafio Final.
 
-- [ ] Desafio Final 
+- [X] Desafio Final 
 
 
 ###### Atividades entregues
