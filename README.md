@@ -56,3 +56,4 @@
 Todos os Módulos foram completados.
 
 
+<h4 align="center"> <em>&lt;/&gt;</em> by <a href="https://github.com/telurt" target="_blank">telurt</a> </h4>
