@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "celebrate": "^12.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "yarn": "^1.22.4"
   },
   "devDependencies": {
